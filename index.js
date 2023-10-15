@@ -17,7 +17,7 @@ export const invokeAction = async ({ action, id, name, email, phone }) => {
     switch(action){
         case 'list':
             const getAllContacts = await contactsService.listContacts();
-            return console.log(getAllContacts);
+            return console.table(getAllContacts);
         case 'get':
             const getIdContacts = await contactsService.getContactById(id)
             return console.log(getIdContacts); 
@@ -28,13 +28,15 @@ export const invokeAction = async ({ action, id, name, email, phone }) => {
             const deleteContact = await contactsService.removeContact(id)   
             return console.log(deleteContact); 
                
-       default: console.log('Uknown action');
+       default: console.warn('\x1B[31m Unknown action type!');
 
     }
 
 }
 
+invokeAction(argv)
 
-invokeAction({action: "remove", id: "nvXNE8XXiGF6-74UevVWW"});
+
+
 
 

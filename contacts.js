@@ -28,8 +28,8 @@ export const getContactById = async (id) => {
 export const removeContact = async (id) => {
 
   const allContacts = await listContacts()
-  const index = allContacts.findIndex(item => item.id === id)
-  if (index !== -1) {
+  const index = allContacts.findIndex((item) => item.id === id)
+  if (index === -1) {
    return null
   }
   
